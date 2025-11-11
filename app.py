@@ -1,6 +1,8 @@
+import os
 from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
+
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -24,10 +26,20 @@ def index():
 
     return render_template("index.html")
 
+
+REDIRECT_URL = os.getenv("REDIRECT_URL", "https://example.com")
+
+
 @app.route("/welcome")
 def welcome():
     email = request.args.get("email", "гость")
-    return render_template("welcome.html", email=email)
+    return render_template("welcome.html", email=email, redirect_url=REDIRECT_URL)
+
+
+@app.route("/health")
+def health():
+    return "OK", 200
+
 
 if __name__ == "__main__":
     app.run(host='127.0.0.1', port=5000, debug=True)

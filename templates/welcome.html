@@ -6,10 +6,9 @@
     <title>Добро пожаловать</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script>
-        // Задержка перед переходом
         setTimeout(function () {
-            window.location.href = "https://example.com"; // можно заменить на свой сайт
-        }, 3000); // 3000 миллисекунд = 3 секунды
+            window.location.href = "{{ redirect_url }}";
+        }, 3000);
     </script>
 </head>
 
