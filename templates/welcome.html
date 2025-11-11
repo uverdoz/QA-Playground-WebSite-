@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Добро пожаловать</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        // Задержка перед переходом
+        setTimeout(function () {
+            window.location.href = "https://example.com"; // можно заменить на свой сайт
+        }, 3000); // 3000 миллисекунд = 3 секунды
+    </script>
+</head>
+
+<body>
+    <div class="container fade-in">
+        <h1>Добро пожаловать, {{ email }} 🎉</h1>
+        <p>Регистрация прошла успешно! Перенаправление на главную страницу...</p>
+
+        <!-- Индикатор загрузки -->
+        <div class="loader"></div>
+    </div>
+
+    <footer>
+        <p>Created by <strong>QA Engineer: Danil Moseichuk</strong></p>
+    </footer>
+</body>
+
+</html>
