@@ -1,22 +1,50 @@
+/* ===== ОСНОВНОЙ КОНТЕЙНЕР СТРАНИЦЫ ===== */
+html,
 body {
-    background: linear-gradient(135deg, #74b9ff, #a29bfe);
+    height: 100%;
+    margin: 0;
+    padding: 0;
     font-family: 'Segoe UI', Arial, sans-serif;
-    height: 100vh;
+    background: linear-gradient(135deg, #74b9ff, #a29bfe);
     display: flex;
-    align-items: center;
-    justify-content: center;
-
-    body {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-    }
+    flex-direction: column;
 }
 
-h1 {
+/* ===== ОСНОВНОЙ БЛОК (ФОРМА) ===== */
+.container {
+    flex: 1;
+    max-width: 400px;
+    width: 90%;
+    margin: 80px auto 40px;
+    /* нижний отступ для футера */
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     text-align: center;
+    transition: transform 0.3s ease;
+    animation: fadeIn 0.8s ease;
+    word-wrap: break-word;
 }
 
+.container:hover {
+    transform: translateY(-5px);
+}
+
+/* ===== ТЕКСТЫ ===== */
+h1 {
+    color: #0033c1;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #0058f0;
+    font-weight: normal;
+    margin-bottom: 25px;
+}
+
+/* ===== ФОРМА ===== */
 label {
     display: block;
     margin-top: 10px;
@@ -28,12 +56,15 @@ input[type="password"] {
     padding: 8px;
     margin-top: 5px;
     box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 .checkbox {
     margin-top: 10px;
 }
 
+/* ===== КНОПКА ===== */
 button {
     width: 100%;
     margin-top: 15px;
@@ -51,129 +82,11 @@ button:hover {
     transform: scale(1.05);
 }
 
-h1 {
-    text-align: center;
-    color: #0033c1;
-    /* Тёмно-синий, выглядит дорого */
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-h2 {
-    text-align: center;
-    color: #0058f0;
-    /* Серо-голубой подзаголовок */
-    font-weight: normal;
-    margin-bottom: 25px;
-}
-
-.container {
-    width: 360px;
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-    animation: fadeIn 0.8 ease;
-
-    .container {
-        flex: 1;
-    }
-
-}
-
-.container:hover {
-    transform: translateY(-5px);
-}
-
-.message.success {
-    color: #27ae60;
-    /* зелёный */
-}
-
-.message.error {
-    color: #e74c3c;
-    /* красный */
-}
-
-input.error {
-    border: 2px solid #e74c3c;
-    background-color: #fdecea;
-}
-
 button:active {
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3) inset;
     transform: scale(0.98);
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-footer {
-    text-align: center;
-    margin-top: 15px;
-    color: #636e72;
-    font-size: 13px;
-}
-
-.btn-back {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 15px;
-    background-color: #00b894;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.btn-back:hover {
-    background-color: #009874;
-}
-
-/* Контейнер */
-.container {
-    max-width: 400px;
-    width: 90%;
-    margin: 80px auto;
-    padding: 25px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
-/* Заголовок */
-h1 {
-    font-size: 24px;
-    color: #2d3436;
-    margin-bottom: 15px;
-    word-break: break-word;
-}
-
-/* Футер */
-footer {
-    text-align: center;
-    color: #636e72;
-    font-size: 13px;
-    margin-top: 30px;
-    position: fixed;
-    bottom: 10px;
-    left: 0;
-    width: 100%;
-}
-
+/* ===== ЛОАДЕР ===== */
 .loader {
     margin: 20px auto;
     border: 5px solid #f3f3f3;
@@ -185,11 +98,34 @@ footer {
 }
 
 @keyframes spin {
-    0% {
+    from {
         transform: rotate(0deg);
     }
 
-    100% {
+    to {
         transform: rotate(360deg);
+    }
+}
+
+/* ===== ФУТЕР ===== */
+footer {
+    margin-top: auto;
+    text-align: center;
+    color: #636e72;
+    font-size: 13px;
+    padding: 10px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* ===== АНИМАЦИЯ ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
