@@ -1,15 +1,44 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Qa Test WebSite</h1>
-<h2>Register</h2>
+<div class="container">
+    <h1>QA Test WebSite</h1>
+    <h2>Register</h2>
 
-{% if message %}
-<p class="message {{ 'success' if 'успешна' in message else 'error' }}">{{ message }}</p>
-{% endif %}
+    {% if message %}
+    <p class="message {{ 'success' if 'успешна' in message else 'error' }}">{{ message }}</p>
+    {% endif %}
 
-<footer>
-    <p>Created by <strong>QA Engineer: Danil Moseichuk</strong> 🚀</p>
-</footer>
+    <form method="post">
+        <label>Email:</label>
+        <input type="text" name="email" placeholder="you@example.com" required
+            class="{{ 'error' if 'Email' in message else '' }}">
+
+        <label>Пароль:</label>
+        <input type="password" name="password" placeholder="минимум 8 символов" required
+            class="{{ 'error' if 'Пароль' in message else '' }}">
+
+        <label>Язык:</label>
+        <select name="lang">
+            <option value="ru">Русский</option>
+            <option value="en">English</option>
+        </select>
+
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="agree">
+                Согласен с условиями (должно быть обязательно)
+            </label>
+        </div>
+
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+
+    <footer>
+        <p>Created by <strong>QA Engineer: Danil Moseichuk</strong> 🚀</p>
+    </footer>
+
+</div>
+
 
 <script>
     const form = document.querySelector("form");
@@ -19,39 +48,9 @@
         button.textContent = "Отправка...";
         button.disabled = true;
         setTimeout(() => {
-            button.textContent = "Отправить";
+            button.textContent = "Зарегистрироваться";
             button.disabled = false;
         }, 1500);
     });
 </script>
-
-<form method="post">
-    <label>Email:
-        <input type="text" name="email" placeholder="you@example.com">
-    </label><br><br>
-
-    <label>Пароль:
-        <input type="password" name="password" placeholder="минимум 8 (специально баг)">
-    </label><br><br>
-
-    <label>Язык:
-        <select name="lang">
-            <option value="ru">Русский</option>
-            <option value="en">English</option>
-        </select>
-    </label><br><br>
-
-    <label>
-        <input type="checkbox" name="agree">
-        Согласен с условиями (должно быть обязательно, но сейчас баг)
-    </label><br><br>
-
-    <button type="submit">Зарегистрироваться</button>
-</form>
 {% endblock %}
-
-<input type="text" name="email" placeholder="Введите email" required
-    class="{{ 'error' if 'Email' in message else '' }}">
-
-<input type="password" name="password" placeholder="Введите пароль" required
-    class="{{ 'error' if 'Пароль' in message else '' }}">

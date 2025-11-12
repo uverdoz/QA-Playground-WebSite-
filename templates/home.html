@@ -8,13 +8,23 @@
     </p>
 
     <div class="product-grid">
-        {% for p in products %}
         <div class="product-card">
-            <h2>{{ p.name }}</h2>
-            <p>{{ p.desc }}</p>
-            <button onclick="window.location.href='/product/{{ p.name }}'">Подробнее</button>
+            <h2>BioBoost</h2>
+            <p>Органический стимулятор роста. 100% натуральный состав.</p>
+            <button onclick="window.location.href='/product/BioBoost'">Подробнее</button>
         </div>
-        {% endfor %}
+
+        <div class="product-card">
+            <h2>EcoSoil</h2>
+            <p>Минерально-биологическая смесь для обогащения почвы.</p>
+            <button onclick="window.location.href='/product/EcoSoil'">Подробнее</button>
+        </div>
+
+        <div class="product-card">
+            <h2>RootMax</h2>
+            <p>Укрепляет корневую систему, ускоряет рост.</p>
+            <button onclick="window.location.href='/product/RootMax'">Подробнее</button>
+        </div>
     </div>
 </div>
 {% endblock %}
