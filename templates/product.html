@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="product-container">
+    <h1>{{ name }}</h1>
+    <p>{{ description }}</p>
+
+    {% if false %} {# старый статический блок, можно удалить #}{% endif %}
+
+    <ul>
+        <li>✔ Повышает усвоение питательных веществ</li>
+        <li>✔ Ускоряет рост корневой системы</li>
+        <li>✔ Снижает стресс растений при пересадке</li>
+    </ul>
+
+    <button onclick="window.location.href='/home'" class="btn-back">Назад к каталогу</button>
+</div>
+{% endblock %}

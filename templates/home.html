@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="home-container">
+    <h1>🌿 GreenGrow — Органические удобрения</h1>
+    <p class="intro">
+        Добро пожаловать в <b>GreenGrow</b> — магазин экологичных удобрений для растений by "Danil Moseychuk".
+        Мы предлагаем только натуральные продукты для вашего сада, огорода и комнатных растений.
+    </p>
+
+    <div class="product-grid">
+        {% for p in products %}
+        <div class="product-card">
+            <h2>{{ p.name }}</h2>
+            <p>{{ p.desc }}</p>
+            <button onclick="window.location.href='/product/{{ p.name }}'">Подробнее</button>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

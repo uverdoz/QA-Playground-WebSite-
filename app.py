@@ -22,7 +22,7 @@ def index():
             return render_template("index.html", message=message)
         else:
             # Если всё верно — переход на новую страницу
-            return redirect(url_for("welcome", email=email))
+            return redirect(url_for('home'))
 
     return render_template("index.html")
 
@@ -41,5 +41,28 @@ def health():
     return "OK", 200
 
 
+@app.route('/home')
+def home():
+    products = [
+        {'name': 'BioBoost', 'desc': 'Органическое удобрение для роста растений'},
+        # сделал RootMax чтобы совпадало
+        {'name': 'RootMax', 'desc': 'Минеральный стимулятор для почвы'},
+        {'name': 'EcoSoil', 'desc': 'Натуральное удобрение для овощей'}
+    ]
+    return render_template('home.html', products=products)
+
+
+@app.route('/product/<name>')
+def product(name):
+    products = {
+        'BioBoost': 'Органическое удобрение для стимуляции роста и укрепления корней.',
+        'RootMax': 'Минеральный состав для восстановления почвы и роста урожайности.',
+        'EcoSoil': 'Экологичное удобрение на основе растительных компонентов.'
+    }
+
+    description = products.get(name, "Описание не найдено.")
+    return render_template('product.html', name=name, description=description)
+
+
 if __name__ == "__main__":
-    app.run(host='127.0.0.1', port=5000, debug=True)
+    app.run(host="0.0.0.0", port=8080, debug=True)
