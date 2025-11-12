@@ -1,3 +1,3 @@
 Написал собственный сайт для практики на позицию QA Engineer.
-Ссылка - https://qa-playground-website.onrender.com/home
+Ссылка - https://qa-playground-website.onrender.com/
 Это небольшой сайт который написан с помощью VSCode на стеке Flask, HTML, CSS, Python. Тут я постарался воспроизвести для себя ключевые моменты для составления тест кейсов с помощью Google Sheets. Так же в работе использовал такие инструменты как Jira Postman
